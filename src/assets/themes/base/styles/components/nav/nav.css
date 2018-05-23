@@ -25,6 +25,10 @@
     margin-left: auto;
 }
 
+.nav__project-icon {
+    margin-right: 10px;
+}
+
 /* Header nav section */
 .nav__item._header+.nav__item._header {
     margin-left: 6px;
@@ -36,13 +40,12 @@
 }
 
 /* Projects nav section */
-.nav._vertical>.nav__item._project {
+.nav__item._project {
+    display: flex;
+    align-items: center;
     margin-top: 16px;
     margin-left: 38px;
-}
-
-.nav__item._project+.nav__item._project {
-    /*margin-top: 16px;*/
+    text-decoration: none;
 }
 
 /* Search nav section */
