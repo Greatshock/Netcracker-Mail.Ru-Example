@@ -1,0 +1,36 @@
+.select {
+    position: relative;
+}
+
+.select__value {
+    padding: 6px;
+    font-size: 12px;
+    font-family: "Helvetica Neue", serif;
+    text-decoration: none;
+    color: #0070CF;
+}
+
+.select__value:hover {
+    cursor: pointer;
+}
+
+.select__value._orange-on-hover:hover {
+    color: #FF7726;
+}
+
+/*.select__list-item {*/
+
+/*}*/
+
+.select__list-link {
+    padding: 10px 20px;
+    font-size: 13px;
+    font-family: "Helvetica Neue", serif;
+    text-decoration: none;
+    color: #0070CF;
+    cursor: pointer;
+}
+
+.select__list-link._orange-on-hover:hover {
+    color: #FF7726;
+}

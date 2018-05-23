@@ -1,0 +1,28 @@
+.button {
+    padding: 0 15px;
+    border-radius: 2px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button._blue {
+    border: 1px solid #137cc7;
+    background: #168de2;
+    box-shadow: 0 2px 0 0 rgba(0,0,0,.04);
+    color: #fff;
+}
+
+.button._orange {
+    border: 1px solid #ff9a0c;
+    background: #ffa930;
+    box-shadow: 0 2px 0 0 rgba(0,0,0,.04);
+    color: #fff;
+}
+
+.button._medium-text {
+    font-size: 15px;
+}
+
+.button._large-text {
+    font-size: 17px;
+}

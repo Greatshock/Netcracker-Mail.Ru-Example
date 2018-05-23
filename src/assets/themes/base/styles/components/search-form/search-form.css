@@ -1,0 +1,30 @@
+.search-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-form__input-with-icon {
+    display: flex;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.48);
+    border-right: none;
+}
+
+.search-form__input {
+    height: 38px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 17px;
+}
+
+.search-form__icon {
+    display: flex;
+    align-items: center;
+    padding: 11px 12px;
+}
+
+/*.search-form__input,*/
+/*.search-form__input-with-icon {*/
+    /*padding: 10px;*/
+/*}*/

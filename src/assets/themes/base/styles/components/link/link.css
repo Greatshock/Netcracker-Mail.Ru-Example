@@ -1,0 +1,46 @@
+.link {
+    height: 100%;
+    font-family: "Helvetica Neue", serif;
+    text-decoration: none;
+    color: #07c;
+}
+
+.link._black {
+    color: black;
+}
+
+.link._underlined {
+    text-decoration: underline;
+}
+
+.link._small {
+    font-size: 12px;
+}
+
+.link._medium {
+    font-size: 13px;
+}
+
+.link._big {
+    font-size: 15px;
+}
+
+.link._bold {
+    font-weight: 700;
+}
+
+.link:hover {
+    cursor: pointer;
+}
+
+.link._orange-on-hover:hover {
+    color: #FF7726;
+}
+
+.link._underline-on-hover:hover {
+    text-decoration: underline;
+}
+
+.link._black._remove-underline-on-hover:hover {
+    text-decoration: none;
+}

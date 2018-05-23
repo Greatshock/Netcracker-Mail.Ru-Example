@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Mail.ru: почта, поиск</title>
+    <link rel="stylesheet" href="assets/themes/base/styles/styles.css">
+    <link rel="stylesheet" href="assets/themes/base/fonts/fonts.css">
+</head>
+<body>
+
+<div class="page">
+
+    <nav class="nav _margin-bottom-m">
+        <div class="nav__item _header">
+            <a href="#" class="link _small _bold _orange-on-hover nav__header-link">
+                Mail.Ru
+            </a>
+        </div>
+        <div class="nav__item _header">
+            <a href="#" class="link _small _orange-on-hover nav__header-link">
+                Почта
+            </a>
+        </div>
+        <div class="nav__item _header">
+            <a href="#" class="link _small _orange-on-hover nav__header-link">
+                Мой мир
+            </a>
+        </div>
+        <div class="nav__item _header">
+            <a href="#" class="link _small _orange-on-hover nav__header-link">
+                Одноклассники
+            </a>
+        </div>
+        <div class="nav__item _header">
+            <a href="#" class="link _small _orange-on-hover nav__header-link">
+                Игры
+            </a>
+        </div>
+        <div class="nav__item _header">
+            <a href="#" class="link _small _orange-on-hover nav__header-link">
+                Знакомства
+            </a>
+        </div>
+        <div class="nav__item _header">
+            <a href="#" class="link _small _orange-on-hover nav__header-link">
+                Новости
+            </a>
+        </div>
+        <div class="nav__item _header">
+            <a href="#" class="link _small _orange-on-hover nav__header-link">
+                Поиск
+            </a>
+        </div>
+        <div class="nav__item _header">
+            <a class="select__value _orange-on-hover nav__header-link">Все проекты</a>
+            <!--<div class="select">-->
+                <!---->
+                <!--<div class="select__list">-->
+                    <!--&lt;!&ndash;<div class="select__list-item"><a href="" class="select__list-link _orange-on-hover">Авто</a></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="select__list-item"><a href="" class="select__list-link">Бонус</a></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="select__list-item"><a href="" class="select__list-link">Гороскопы</a></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash; TODO Add options &ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="nav__item _right _header">
+            <a href="#" class="link _small _orange-on-hover nav__header-link">
+                Регистрация
+            </a>
+        </div>
+        <div class="nav__item _header">
+            <a href="#" class="link _small _orange-on-hover nav__header-link">
+                Вход
+            </a>
+        </div>
+    </nav>
+
+    <main class="page__main-content-container">
+
+        <aside class="page__aside">
+
+            <div class="mailbox">
+
+                <div class="logo">
+                    <a class="logo__img" href="https://mail.ru"></a>
+                </div>
+
+                <div class="mailbox__header">
+                    <a class="link _big _bold _underline-on-hover" href="https://e.mail.ru/login?from=main&rf=mail.ru">Почта</a>
+                    <div class="mailbox__icons-section">
+                        <div class="mailbox__icon">
+                            <a class="icon _small _cloud" href="https://cloud.mail.ru/?utm_source=mainpage_promo&utm_medium=mainpage_promo&utm_campaign=иконки%20на%20главной/"></a>
+                        </div>
+                        <div class="mailbox__icon">
+                            <a class="icon _small _calendar" href="https://promo.calendar.mail.ru/"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="mailbox__body">
+                    <div class="mailbox__mail-row">
+                        <input type="text" class="mailbox__login-input" placeholder="Имя ящика"/>
+                        <div class="mailbox__domain-select-container">
+                            <select class="mailbox__domain-select">
+                                <option value="@mail.ru">@mail.ru</option>
+                                <option value="@inbox.ru">@inbox.ru</option>
+                                <option value="@list.ru">@list.ru</option>
+                                <option value="@bk.ru">@bk.ru</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mailbox__mail-row">
+                        <input type="password" class="mailbox__password-input" placeholder="Пароль"/>
+                        <input type="submit" class="button mailbox__button _blue _medium-text" value="Войти"/>
+                    </div>
+
+                    <div class="mailbox__save-restore-row">
+                        <div class="mailbox__restore-link-container">
+                            <a href="https://e.mail.ru/password/restore/" class="link _medium _black _underlined _remove-underline-on-hover">Забыли пароль?</a>
+                        </div>
+                        <label class="mailbox__save-auth-label">
+                            <input class="checkbox" type="checkbox" checked="checked"/>
+                            Запомнить
+                        </label>
+                    </div>
+                </form>
+
+                <div class="mailbox__footer">
+                    <a class="link _big _underline-on-hover mailbox__footer-link"  href="https://e.mail.ru/signup?from=main&rf=auth.mail.ru">Регистрация нового ящика</a>
+                </div>
+            </div>
+
+            <nav class="nav _vertical _projects">
+                <div class="nav__item _project">ICQ</div>
+                <div class="nav__item _project">Мой мир</div>
+                <div class="nav__item _project">Одноклассники</div>
+                <div class="nav__item _project">Агент Mail.Ru</div>
+                <div class="nav__item _project">Гороскоп</div>
+                <div class="nav__item _project">ТВ-программа</div>
+                <div class="nav__item _project">Товары</div>
+            </nav>
+
+        </aside>
+
+        <div class="page__main">
+
+            <nav-panel class="nav">
+                <div class="nav__item _search">
+                    <a href="" class="link _big _bold _underline-on-hover">Поиск в интернете</a>
+                </div>
+                <div class="nav__item _search">
+                    <a href="" class="link _big _underline-on-hover">Картинки</a>
+                </div>
+                <div class="nav__item _search">
+                    <a href="" class="link _big _underline-on-hover">Видео</a>
+                </div>
+                <div class="nav__item _search">
+                    <a href="" class="link _big _underline-on-hover">Приложения</a>
+                </div>
+                <div class="nav__item _search">
+                    <a href="" class="link _big _underline-on-hover">Ответы</a>
+                </div>
+            </nav-panel>
+
+            <form class="search-form">
+                <div class="search-form__input-with-icon">
+                    <div class="search-form__icon">
+                        <span class="icon _small _search"></span>
+                    </div>
+                    <input type="text" class="search-form__input" placeholder="котята"/>
+                </div>
+                <input type="button" class="button _orange _large-text" value="Найти"/>
+            </form>
+
+            <nav-panel class="nav"> <!-- TODO сделать синий ползунок -->
+                <div class="nav__item _tab">
+                    <a href="" class="link _big _bold">Новости</a>
+                </div>
+                <div class="nav__item _tab">
+                    <a href="" class="link _big _black">Спорт</a>
+                </div>
+                <div class="nav__item _tab">
+                    <a href="" class="link _big _black">Леди</a>
+                </div>
+                <div class="nav__item _tab">
+                    <a href="" class="link _big _black">Авто</a>
+                </div>
+                <div class="nav__item _tab">
+                    <a href="" class="link _big _black">Кино</a>
+                </div>
+                <div class="nav__item _tab">
+                    <a href="" class="link _big _black">Hi-Tech</a>
+                </div>
+                <div class="nav__item _tab">
+                    <a href="" class="link _big _black">Игры</a>
+                </div>
+                <div class="nav__item _tab">
+                    <span class="icon _more _dark"></span>
+                </div>
+            </nav-panel>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

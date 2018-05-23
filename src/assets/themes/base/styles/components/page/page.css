@@ -1,0 +1,25 @@
+.page {
+    margin: 5px 10px;
+    height: 100vh;
+}
+
+.page__main-content-container {
+    display: flex;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.page__aside {
+    display: flex;
+    flex: 0 1 240px;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 300px;
+}
+
+.page__main {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    margin-left: 40px;
+}
