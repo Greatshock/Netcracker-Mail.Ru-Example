@@ -4,17 +4,16 @@
     text-decoration: none;
 }
 
-.title-with-description__title,
-.title-with-description__description {
-    text-decoration: none;
-}
-
-.title-with-description__title {
-
+.title-with-description._no-overflow {
+    overflow: hidden;
 }
 
 .title-with-description__title._text-m {
     font-size: 15px;
+}
+
+.title-with-description__description._text-s {
+    font-size: 13px;
 }
 
 /* Title colors */
@@ -22,24 +21,11 @@
     color: #0070CF;
 }
 
-/*.title-with-description__title._black {*/
-
-/*}*/
-
-.title-with-description__description {
-
-}
-
-.title-with-description__description._text-s {
-    font-size: 13px;
-}
-
 /* Description colors */
-
 .title-with-description__description._gray {
     color: #A1A1A1;
 }
 
 .title-with-description__description._black {
-    color: #5D5D5D;
+    color: #393939;
 }

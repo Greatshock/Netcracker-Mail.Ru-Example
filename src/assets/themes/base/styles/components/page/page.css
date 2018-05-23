@@ -6,7 +6,7 @@
 .page__main-content-container {
     display: flex;
     margin: auto;
-    max-width: 1200px;
+    max-width: 1300px;
 }
 
 .page__aside {
@@ -22,4 +22,24 @@
     flex: 1 1 auto;
     flex-direction: column;
     margin-left: 40px;
+}
+
+.page__content {
+    display: flex;
+}
+
+.page__main-content {
+    display: flex;
+    flex: 0 1 600px;
+    flex-direction: column;
+    margin-right: 40px;
+}
+
+.page__side-content {
+    display: flex;
+    flex: 1 1 300px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12px;
+    background-color: forestgreen; //TODO remove
 }
