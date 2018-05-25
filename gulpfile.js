@@ -28,7 +28,6 @@ gulp.task('less', () => {
         .pipe(cleanCSS())
         .pipe(gulpIf(isDevelopment, sourceMaps.write()))
         .pipe(gulp.dest('prod'));
-        // .pipe(browserSync.stream());
 });
 
 gulp.task('images', () => {
