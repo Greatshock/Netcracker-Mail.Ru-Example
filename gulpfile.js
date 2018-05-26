@@ -1,28 +1,27 @@
 let gulp         = require("gulp"),
+    glob         = require("glob"),
     less         = require("gulp-less"),
     autoprefixer = require("gulp-autoprefixer"),
-    cleanCSS    = require("gulp-clean-css"),
-    sourcemaps      = require("gulp-sourcemaps");
-    notify      = require("gulp-notify");
-    browserSync  = require("browser-sync").create();
+    cleanCSS = require("gulp-clean-css"),
+    sourcemaps = require("gulp-sourcemaps"),
+    browserSync  = require("browser-sync");
 
-gulp.task("index", function() {
+gulp.task("index", () => {
     return gulp.src("src/index.html")
-        .pipe(gulp.dest("dist"));
+        .pipe(gulp.dest("dist"))
+        .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task("images", function() {
+gulp.task("images", () => {
     return gulp.src("src/assets/themes/base/images/**/*.*", {base: "src/assets/themes/base"})
-        .pipe(gulp.dest("dist"));
+        .pipe(gulp.dest("dist"))
+        .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task("less", function() {
+gulp.task("less", () => {
     return gulp.src("src/assets/themes/base/styles/base.less")
-        //.pipe(sourcemaps.init())
+        .pipe(sourcemaps.init())
         .pipe(less())
-        .on("error", function() {
-            console.log('error in less')
-        })
         .pipe(autoprefixer({
             browsers: [
                 "last 2 versions",
@@ -32,18 +31,28 @@ gulp.task("less", function() {
             ],
             cascade: true
         }))
-        .on("error", notify.onError({
-            title: "style"
-        }))
         .pipe(cleanCSS())
-        //.pipe(sourcemaps.write())
-        .pipe(gulp.dest("dist"));
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest("dist"))
+        .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task("watch", function() {
-    gulp.watch("src/index.html", gulp.series("index"));
-    gulp.watch("src/assets/themes/base/images/**/*.*", gulp.series("images"));
-    gulp.watch("src/assets/themes/base/styles/**/*.less", gulp.series("less"));
+gulp.task("bs", () => {
+    browserSync({
+        server: {
+            baseDir: "dist"
+        },
+        port: 9191,
+        files: [
+            "./*.html"
+        ]
+    });
 });
 
-gulp.task("default", gulp.series(gulp.parallel("index", "less", "images"), "watch"));
+gulp.task("watch", ["bs", "less", "index", "images"], () => {
+    gulp.watch("src/assets/themes/base/styles/**/*.less", ["less"]);
+    gulp.watch("src/index.html", ["index"]);
+    gulp.watch("src/assets/themes/base/images/**/*.*",  ["images"]);
+});
+
+gulp.task("default", ["watch"]);
