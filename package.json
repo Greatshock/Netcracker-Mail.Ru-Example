@@ -14,10 +14,11 @@
   "homepage": "https://github.com/Greatshock/Netcracker-Mail.ru#readme",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp dev",
-    "serve": "gulp serve",
+    "images": "gulp images",
+    "index": "gulp index",
+    "less": "gulp less",
     "watch": "gulp watch",
-    "build": "gulp build"
+    "gulp": "gulp"
   },
   "devDependencies": {
     "browser-sync": "^2.24.4",
@@ -27,6 +28,7 @@
     "gulp-clean-css": "^3.9.4",
     "gulp-if": "^2.0.2",
     "gulp-less": "^4.0.0",
+    "gulp-notify": "^3.2.0",
     "gulp-sourcemaps": "^2.6.4",
     "less": "^3.0.4"
   }
