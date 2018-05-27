@@ -3,26 +3,7 @@
     font-family: "Helvetica Neue", serif;
     text-decoration: none;
     color: #07c;
-}
-
-.link._black {
-    color: black;
-}
-
-.link._underlined {
-    text-decoration: underline;
-}
-
-.link._small {
-    font-size: 12px;
-}
-
-.link._medium {
-    font-size: 13px;
-}
-
-.link._big {
-    font-size: 15px;
+    cursor: pointer;
 }
 
 .link._bold {
@@ -30,17 +11,70 @@
 }
 
 .link:hover {
-    cursor: pointer;
-}
-
-.link._orange-on-hover:hover {
-    color: #FF7726;
-}
-
-.link._underline-on-hover:hover {
     text-decoration: underline;
 }
 
-.link._black._remove-underline-on-hover:hover {
+/* Sizes */
+.link._s {
+    font-size: 12px;
+}
+
+.link._m {
+    font-size: 13px;
+}
+
+.link._l {
+    font-size: 15px;
+}
+
+/* Types of links */
+.link._highlighting:hover {
+    color: #FF7726;
     text-decoration: none;
+}
+
+.link._accent {
+    color: black;
+    text-decoration: underline;
+}
+
+.link._accent:hover {
+    text-decoration: none;
+}
+
+.link._header {
+    padding: 6px;
+}
+
+.link._mailbox-footer {
+    padding: 12px 20px 16px;
+}
+
+.link._search-category {
+    line-height: 20px;
+}
+
+.link._news-category {
+    padding-bottom: 10px;
+    color: #3D3D3D;
+    text-decoration: none;
+}
+
+.link._news-category:hover {
+    border-bottom: 2px solid #E0E0E0;
+}
+
+.link._news-category._active {
+    padding-bottom: 12px;
+    font-weight: 700;
+    color: #07c;
+    border-bottom: 2px solid #07c;
+}
+
+.link._news-category-label {
+    color: black;
+    margin-right: 5px;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: .8px;
 }
