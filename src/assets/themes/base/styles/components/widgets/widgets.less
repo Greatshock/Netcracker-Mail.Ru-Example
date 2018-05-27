@@ -1,0 +1,46 @@
+.widgets {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.widgets__heading {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.widgets__body {
+  display: flex;
+  align-items: center;
+}
+
+.widgets__item {
+  display: flex;
+  align-items: center;
+}
+
+.widgets__item+.widgets__item {
+  margin-left: 20px;
+}
+
+.widgets__currency,
+.widgets__horo {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.widgets__currency-rate,
+.widgets__currency-change,
+.widgets__horo-sign,
+.widgets__horo-forecast {
+  font-size: 13px;
+}
+
+.widgets__currency-change {
+  color: limegreen;
+}
+
+.widgets__horo-forecast {
+  color: #A1A1A1;
+}
