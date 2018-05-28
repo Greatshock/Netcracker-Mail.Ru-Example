@@ -2,12 +2,12 @@ let gulp         = require("gulp"),
     glob         = require("glob"),
     less         = require("gulp-less"),
     autoprefixer = require("gulp-autoprefixer"),
-    cleanCSS = require("gulp-clean-css"),
-    sourcemaps = require("gulp-sourcemaps"),
+    cleanCSS     = require("gulp-clean-css"),
+    sourcemaps   = require("gulp-sourcemaps"),
     browserSync  = require("browser-sync");
 
-gulp.task("index", () => {
-    return gulp.src("src/index.html")
+gulp.task("markup", () => {
+    return gulp.src("src/*.html")
         .pipe(gulp.dest("dist"))
         .pipe(browserSync.reload({stream: true}));
 });
@@ -40,8 +40,10 @@ gulp.task("less", () => {
 gulp.task("bs", () => {
     browserSync({
         server: {
-            baseDir: "dist"
+            baseDir: "dist",
+            directory: true
         },
+        startPath: './yandex.html',
         port: 9191,
         files: [
             "./*.html"
@@ -49,9 +51,9 @@ gulp.task("bs", () => {
     });
 });
 
-gulp.task("watch", ["bs", "less", "index", "images"], () => {
+gulp.task("watch", ["bs", "less", "markup", "images"], () => {
     gulp.watch("src/assets/themes/base/styles/**/*.less", ["less"]);
-    gulp.watch("src/index.html", ["index"]);
+    gulp.watch("src/*.html", ["markup"]);
     gulp.watch("src/assets/themes/base/images/**/*.*",  ["images"]);
 });
 

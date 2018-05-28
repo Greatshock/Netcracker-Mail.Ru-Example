@@ -1,17 +1,17 @@
 {
-  "name": "netcracker-mail.ru-example",
+  "name": "netcracker-study-course",
   "version": "1.0.0",
-  "description": "Educational project during study at [Netcracker](https://www.netcracker.com/)   **An attempt** to make a pixel-perfect copy of [Mail.Ru](https://www.mail.ru/)",
+  "description": "Educational project during study at [Netcracker](https://www.netcracker.com/)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Greatshock/Netcracker-Mail.ru.git"
+    "url": "git+https://github.com/Greatshock/Netcracker-Study-Course.git"
   },
   "author": "Nikita Marinosyan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Greatshock/Netcracker-Mail.ru/issues"
+    "url": "https://github.com/Greatshock/Netcracker-Study-Course.git/issues"
   },
-  "homepage": "https://github.com/Greatshock/Netcracker-Mail.ru#readme",
+  "homepage": "https://github.com/Greatshock/Netcracker-Study-Course.git#readme",
   "main": "index.js",
   "scripts": {
     "images": "gulp images",
