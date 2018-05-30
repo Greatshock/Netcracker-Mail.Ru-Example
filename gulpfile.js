@@ -4,7 +4,39 @@ let gulp         = require("gulp"),
     autoprefixer = require("gulp-autoprefixer"),
     cleanCSS     = require("gulp-clean-css"),
     sourcemaps   = require("gulp-sourcemaps"),
-    browserSync  = require("browser-sync");
+    browserSync  = require("browser-sync"),
+    svgstore     = require('gulp-svgstore'),
+    svgmin       = require('gulp-svgmin'),
+    path         = require('path'),
+    inject = require('gulp-inject');
+
+gulp.task('svgs', () => {
+    let svgs = gulp
+        .src('src/assets/themes/base/icons/*.svg')
+        .pipe(svgmin(function (file) {
+            let prefix = path.basename(file.relative, path.extname(file.relative));
+            return {
+                plugins: [{
+                    cleanupIDs: {
+                        prefix: prefix + '-',
+                        minify: true
+                    }
+                }]
+            }
+        }))
+        .pipe(svgstore({ inlineSvg: true }))
+        .pipe(gulp.dest('dist')); // TODO remove when implement inject
+
+    function fileContents (filePath, file) {
+        return file.contents.toString();
+    }
+
+    // TODO implement injection
+    // return gulp
+    //     .src('src/*.html')
+    //     .pipe(inject(svgs, { transform: fileContents }))
+    //     .pipe(gulp.dest('dist'));
+});
 
 gulp.task("markup", () => {
     return gulp.src("src/*.html")

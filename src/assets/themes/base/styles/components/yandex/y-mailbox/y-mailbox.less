@@ -1,0 +1,26 @@
+.y-mailbox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 12px;
+  width: 180px;
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,.1), 0 2px 6px 0 rgba(0,0,0,.1);
+
+  &__inner {
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    &._footer {
+      justify-content: center;
+    }
+  }
+}

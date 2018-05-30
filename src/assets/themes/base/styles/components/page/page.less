@@ -1,4 +1,5 @@
 .page {
+  position: relative;
   margin: 0 10px;
   display: flex;
   flex-direction: column;
@@ -8,6 +9,10 @@
     max-width: @page-width-limit;
     margin: auto;
     align-self: center;
+
+    &._vertical {
+      flex-direction: column;
+    }
   }
 
   &__aside {
@@ -41,6 +46,14 @@
     flex: 0 1 300px;
     flex-direction: column;
     padding-top: 12px;
+  }
+
+  &__line {
+    display: flex;
+    &._first {
+      min-height: 215px;
+      margin-bottom: 15px;
+    }
   }
 }
 
