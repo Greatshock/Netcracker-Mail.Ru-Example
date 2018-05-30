@@ -1,0 +1,44 @@
+.mr-button {
+    padding: 0 15px;
+    border: 1px solid;
+    border-radius: 2px;
+    box-shadow: 0 2px 0 0 rgba(0,0,0,.04);
+    color: #fff;
+    cursor: pointer;
+    .font-l;
+    text-decoration: none;
+    outline: none;
+
+    &._primary {
+        border-color: @color-button-primary-dark;
+        background: @color-button-primary;
+        &:hover {
+            background: @color-button-primary-dark;
+        }
+    }
+
+    &._accent {
+        border-color: @color-button-accent-dark;
+        background: @color-button-accent;
+        &:hover {
+            background: @color-button-accent-dark;
+        }
+    }
+
+    &._text-l {
+        .font-xl;
+    }
+
+    &._games {
+        margin-top: 4px;
+        height: 32px;
+    }
+
+    &._mailbox {
+        width: 100%;
+    }
+
+    &._search {
+        width: 107px;
+    }
+}

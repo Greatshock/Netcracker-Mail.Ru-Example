@@ -3,60 +3,59 @@
     flex-direction: column;
     border: 1px solid #EBEBEB;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
+    &:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    }
 
-.mailbox:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
-}
+    &__header {
+        display: flex;
+        padding: 12px 20px 8px 20px;
+    }
 
-.mailbox__header {
-    display: flex;
-    padding: 12px 20px 8px 20px;
-}
+    &__body {
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+    }
 
-.mailbox__body {
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px;
-}
+    &__footer {
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid @color-border-light;
+    }
 
-.mailbox__footer {
-    display: flex;
-    justify-content: center;
-    border-top: 1px solid #EBEBEB;
-}
+    /*Email section*/
+    &__mail-row {
+        display: flex;
+        margin-bottom: 8px;
+    }
 
-/*Email section*/
-.mailbox__mail-row {
-    display: flex;
-    margin-bottom: 8px;
-}
+    &__save-restore-row {
+        display: flex;
+        margin-bottom: 20px;
+    }
 
-.mailbox__save-restore-row {
-    display: flex;
-    margin-bottom: 20px;
-}
+    &__restore-link-container {
+        display: flex;
+        margin-right: 70px;
+    }
 
-.mailbox__restore-link-container {
-    display: flex;
-    margin-right: 70px;
-}
+    &__save-auth-label {
+        font-size: @font-size-m;
+    }
 
-.mailbox__save-auth-label {
-    font-size: 13px;
-}
+    /* mailbox__icon section */
+    &__icons-section {
+        display: flex;
+        margin-left: auto;
+        align-items: center;
+    }
 
-/* mailbox__icon section */
-.mailbox__icons-section {
-    display: flex;
-    margin-left: auto;
-    align-items: center;
-}
+    &__icon {
+        display: flex;
+    }
 
-.mailbox__icon {
-    display: flex;
-}
-
-.mailbox__icon+.mailbox__icon {
-    margin-left: 20px;
+    &__icon+&__icon {
+        margin-left: 20px;
+    }
 }

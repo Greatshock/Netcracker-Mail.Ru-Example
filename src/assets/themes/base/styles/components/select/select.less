@@ -2,25 +2,25 @@
   border: 1px solid rgba(0,0,0,.12);
   border-radius: 2px;
   padding: 0 4px;
-}
 
-.select._mailbox-domain {
-  border-left: none;
-}
+  &._mailbox-domain {
+    border-left: none;
+  }
 
-.select__body {
-  height: 100%;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  background: #fff;
-}
+  &__body {
+    height: 100%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: #fff;
 
-.select__option {}
+    &._mailbox-domain {
+      padding: 0 12px;
+      font-family: system-ui, serif;
+      font-weight: 400;
+      font-size: @font-size-l;
+    }
+  }
 
-.select__body._mailbox-domain {
-  padding: 0 12px;
-  font-family: system-ui, serif;
-  font-weight: 400;
-  font-size: 15px;
+  &__option {}
 }
