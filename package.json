@@ -14,20 +14,21 @@
   "homepage": "https://github.com/Greatshock/Netcracker-Study-Course.git#readme",
   "main": "index.js",
   "scripts": {
+    "clean": "gulp clean",
     "images": "gulp images",
     "markup": "gulp markup",
     "less": "gulp less",
-    "svgs": "gulp svgs",
+    "svgstore": "gulp svgstore",
     "watch": "gulp watch",
     "gulp": "gulp"
   },
   "devDependencies": {
     "browser-sync": "^2.24.4",
+    "del": "^3.0.0",
     "glob": "^7.1.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-clean-css": "^3.9.4",
-    "gulp-inject": "^4.3.2",
     "gulp-less": "^3.5.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-svgmin": "^1.2.4",

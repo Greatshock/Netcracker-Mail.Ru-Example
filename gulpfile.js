@@ -8,12 +8,12 @@ let gulp         = require("gulp"),
     svgstore     = require('gulp-svgstore'),
     svgmin       = require('gulp-svgmin'),
     path         = require('path'),
-    inject = require('gulp-inject');
+    del = require('del');
 
-gulp.task('svgs', () => {
-    let svgs = gulp
+gulp.task('svgstore', () => {
+    return gulp
         .src('src/assets/themes/base/icons/*.svg')
-        .pipe(svgmin(function (file) {
+        .pipe(svgmin((file) => {
             let prefix = path.basename(file.relative, path.extname(file.relative));
             return {
                 plugins: [{
@@ -24,18 +24,9 @@ gulp.task('svgs', () => {
                 }]
             }
         }))
-        .pipe(svgstore({ inlineSvg: true }))
-        .pipe(gulp.dest('dist')); // TODO remove when implement inject
-
-    function fileContents (filePath, file) {
-        return file.contents.toString();
-    }
-
-    // TODO implement injection
-    // return gulp
-    //     .src('src/*.html')
-    //     .pipe(inject(svgs, { transform: fileContents }))
-    //     .pipe(gulp.dest('dist'));
+        .pipe(svgstore())
+        .pipe(gulp.dest('dist'))
+        .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task("markup", () => {
@@ -69,6 +60,10 @@ gulp.task("less", () => {
         .pipe(browserSync.reload({stream: true}));
 });
 
+gulp.task('clean', () => {
+    return del('dist/**', {force: true});
+});
+
 gulp.task("bs", () => {
     browserSync({
         server: {
@@ -83,10 +78,13 @@ gulp.task("bs", () => {
     });
 });
 
-gulp.task("watch", ["bs", "less", "markup", "images"], () => {
+gulp.task("watch", ["bs", "less", "markup", "images", "svgstore"], () => {
     gulp.watch("src/assets/themes/base/styles/**/*.less", ["less"]);
     gulp.watch("src/*.html", ["markup"]);
     gulp.watch("src/assets/themes/base/images/**/*.*",  ["images"]);
+    gulp.watch("src/assets/themes/base/icons/**/*.svg", ["svgstore"]);
 });
 
-gulp.task("default", ["watch"]);
+gulp.task("dev", ["clean", "watch"]);
+
+gulp.task("default", ["dev"]);
