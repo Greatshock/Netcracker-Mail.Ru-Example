@@ -6,8 +6,7 @@ Educational project during study at [Netcracker](https://www.netcracker.com/)
 ## Preview
 
 **Mail.ru**
-![Mail.Ru preview](previews/mail.ru-example.png "Here is how the copy of Mail.Ru page looks like")
+![Mail.Ru preview](previews/mail-ru-example.png "Here is how the copy of Mail.Ru page looks like")
 
 **Yandex**  
 _Yandex preview image will be here soon..._
-![Yandex preview](previews/yandex.png "Here is how the copy of Yandex page looks like")

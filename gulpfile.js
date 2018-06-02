@@ -1,32 +1,41 @@
-let gulp         = require("gulp"),
-    glob         = require("glob"),
-    less         = require("gulp-less"),
-    autoprefixer = require("gulp-autoprefixer"),
-    cleanCSS     = require("gulp-clean-css"),
-    sourcemaps   = require("gulp-sourcemaps"),
-    browserSync  = require("browser-sync"),
-    svgstore     = require('gulp-svgstore'),
-    svgmin       = require('gulp-svgmin'),
-    path         = require('path'),
-    del = require('del');
+let gulp = require("gulp");
+let less = require("gulp-less");
+let autoprefixer = require("gulp-autoprefixer");
+let cleanCSS = require("gulp-clean-css");
+let sourcemaps = require("gulp-sourcemaps");
+let del = require("del");
+let browserSync = require("browser-sync");
+let svgstore = require("gulp-svgstore");
+let svgmin = require("gulp-svgmin");
+let path = require("path");
+let inject = require("gulp-inject");
+let rename = require("gulp-rename");
 
-gulp.task('svgstore', () => {
-    return gulp
-        .src('src/assets/themes/base/icons/*.svg')
+gulp.task("svgstore", () => {
+    let svgs = gulp.src("src/assets/themes/base/icons/*.svg")
         .pipe(svgmin((file) => {
             let prefix = path.basename(file.relative, path.extname(file.relative));
             return {
                 plugins: [{
                     cleanupIDs: {
-                        prefix: prefix + '-',
+                        prefix: prefix + "-",
                         minify: true
                     }
                 }]
-            }
+            };
         }))
-        .pipe(svgstore())
-        .pipe(gulp.dest('dist'))
-        .pipe(browserSync.reload({stream: true}));
+        .pipe(rename({prefix: "icon-"}))
+        .pipe(svgstore({inlineSvg: true}));
+
+
+    function fileContents (filePath, file) {
+        return file.contents.toString();
+    }
+
+    return gulp
+        .src("src/*.html")
+        .pipe(inject(svgs, { transform: fileContents }))
+        .pipe(gulp.dest("src"));
 });
 
 gulp.task("markup", () => {
@@ -60,17 +69,16 @@ gulp.task("less", () => {
         .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('clean', () => {
-    return del('dist/**', {force: true});
+gulp.task("clean", () => {
+    return del("dist");
 });
 
 gulp.task("bs", () => {
     browserSync({
         server: {
-            baseDir: "dist",
-            directory: true
+            baseDir: "dist"
         },
-        startPath: './yandex.html',
+        startPath: "./yandex.html",
         port: 9191,
         files: [
             "./*.html"
@@ -78,11 +86,10 @@ gulp.task("bs", () => {
     });
 });
 
-gulp.task("watch", ["bs", "less", "markup", "images", "svgstore"], () => {
+gulp.task("watch", ["bs", "less", "markup", "images"], () => {
     gulp.watch("src/assets/themes/base/styles/**/*.less", ["less"]);
     gulp.watch("src/*.html", ["markup"]);
     gulp.watch("src/assets/themes/base/images/**/*.*",  ["images"]);
-    gulp.watch("src/assets/themes/base/icons/**/*.svg", ["svgstore"]);
 });
 
 gulp.task("dev", ["clean", "watch"]);
