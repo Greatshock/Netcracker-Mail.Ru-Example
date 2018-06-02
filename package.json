@@ -19,6 +19,7 @@
     "markup": "gulp markup",
     "less": "gulp less",
     "svgstore": "gulp svgstore",
+    "ts": "gulp typescript",
     "watch": "gulp watch",
     "gulp": "gulp"
   },
@@ -33,6 +34,8 @@
     "gulp-rename": "^1.2.3",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-svgmin": "^1.2.4",
-    "gulp-svgstore": "^6.1.1"
+    "gulp-svgstore": "^6.1.1",
+    "gulp-typescript": "^4.0.2",
+    "typescript": "^2.9.1"
   }
 }

@@ -10,6 +10,7 @@ let svgmin = require("gulp-svgmin");
 let path = require("path");
 let inject = require("gulp-inject");
 let rename = require("gulp-rename");
+let typescript = require("gulp-typescript");
 
 gulp.task("svgstore", () => {
     let svgs = gulp.src("src/assets/themes/base/icons/*.svg")
@@ -36,6 +37,12 @@ gulp.task("svgstore", () => {
         .src("src/*.html")
         .pipe(inject(svgs, { transform: fileContents }))
         .pipe(gulp.dest("src"));
+});
+
+gulp.task("typescript", () => {
+    return gulp.src("src/components/**/*.ts")
+        .pipe(typescript())
+        .pipe(gulp.dest("dist/components"));
 });
 
 gulp.task("markup", () => {
@@ -86,7 +93,7 @@ gulp.task("bs", () => {
     });
 });
 
-gulp.task("watch", ["bs", "less", "markup", "images"], () => {
+gulp.task("watch", ["bs", "typescript", "less", "markup", "images"], () => {
     gulp.watch("src/assets/themes/base/styles/**/*.less", ["less"]);
     gulp.watch("src/*.html", ["markup"]);
     gulp.watch("src/assets/themes/base/images/**/*.*",  ["images"]);
