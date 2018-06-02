@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basics</title>
+</head>
+<body>
+<script>
+    let number = prompt("Enter a number");
+    if (number > 0) {
+        alert(1);
+    } else if (number < 0) {
+        alert(-1);
+    } else {
+        alert(0);
+    }
+</script>
+<script>
+    let username = prompt("Кто пришел?", "");
+
+    if (username === "Админ") {
+        var pass = prompt("Пароль?", "");
+
+        if (pass === "Чёрный Властелин") {
+            alert( "Добро пожаловать!" );
+        } else if (pass === null) {
+            alert( "Вход отменён" );
+        } else {
+            alert( "Пароль неверен" );
+        }
+    } else if (username === null) {
+        alert( "Вход отменён" );
+    } else {
+        alert( "Я вас не знаю" );
+    }
+</script>
+<script>
+    let a = 1, b = 5;
+    let result = (a + b < 4) ? "Мало" : "Много";
+    alert(result);
+</script>
+<script>
+    let login = "";
+    let message = (login === "Вася") ? "Привет" :
+        // else
+        (login === "Директор") ? "Здравствуйте" :
+            // else
+            (login === "") ? "Нет логина" :
+                //else
+                "";
+    alert(message);
+</script>
+</body>
+</html>
