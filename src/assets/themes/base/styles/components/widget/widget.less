@@ -1,0 +1,50 @@
+.widget {
+  display: flex;
+  flex-direction: column;
+
+  &._popular,
+  &._tv-schedule,
+  &._affiche {
+    margin-top: 20px;
+  }
+
+  &__text {
+    font-size: @font-size-m;
+
+    &._pale {
+      color: @color-pale;
+    }
+  }
+
+  &__text+&__text {
+    margin-left: 10px;
+  }
+
+  &__annotation {
+    margin-left: 10px;
+    font-size: @font-size-m;
+    color: @color-pale;
+  }
+
+  &__header {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__header-item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__body-item {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+}
