@@ -1,6 +1,5 @@
 .mr-link {
     height: 100%;
-    font-family: "Helvetica Neue", serif;
     text-decoration: none;
     color: @color-primary;
     cursor: pointer;
@@ -13,27 +12,20 @@
     }
 
     /* Sizes */
-    &._s {
+    &._size-s {
         font-size: @font-size-s;
     }
 
-    &._m {
+    &._size-m {
         font-size: @font-size-m;
     }
 
-    &._l {
+    &._size-l {
         font-size: @font-size-l;
     }
 
     /* Link types */
-    &._highlighting {
-        &:hover {
-            color: @color-mr-highlight;
-            text-decoration: none;
-        }
-    }
-
-    &._accent {
+    &._secondary {
         color: @color-secondary;
         text-decoration: underline;
         &:hover {
@@ -43,6 +35,10 @@
 
     &._header {
         padding: 6px;
+        &:hover {
+            color: @color-mr-highlight;
+            text-decoration: none;
+        }
     }
 
     &._mr-mailbox-footer {
