@@ -1,32 +1,35 @@
 .y-link {
-  height: 100%;
-  font-family: "Helvetica Neue", serif;
   text-decoration: none;
   color: @color-secondary;
   cursor: pointer;
+  outline: none;
 
   &._bold {
     font-weight: @font-bold;
   }
 
   /* Sizes */
-  &._s {
+  &._size-s {
     font-size: @font-size-s;
   }
 
-  &._m {
+  &._size-m {
     font-size: @font-size-m;
   }
 
-  &._l {
+  &._size-l {
     font-size: @font-size-l;
+  }
+
+  &._size-xsl {
+    font-size: @font-size-xsl;
   }
 
   &._secondary {
     color: @color-primary;
   }
 
-  &._accent {
+  &._pale {
     color: @color-pale;
   }
 
@@ -34,8 +37,8 @@
     color: @color-y-highlight;
   }
 
-  &._header {
-    padding: 6px;
+  &._geo {
+    padding: 6px 6px 6px 0;
   }
 
 }
