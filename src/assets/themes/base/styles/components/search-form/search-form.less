@@ -1,12 +1,27 @@
 .search-form {
+    margin-bottom: 20px;
+    padding-right: 33px;
     display: flex;
     justify-content: space-between;
+
+    &._vertical {
+        flex-direction: column;
+    }
+
+    &__search-panel {
+        display: flex;
+    }
 
     &__input-with-icon {
         display: flex;
         width: 100%;
         border: 1px solid rgba(0,0,0,.48);
         border-right: none;
+
+        &._yandex {
+            height: 32px;
+            border: 2px solid @color-y-accent;
+        }
     }
 
     &__input {
@@ -15,11 +30,25 @@
         border: none;
         outline: none;
         font-size: @font-size-xl;
+
+        &._yandex {
+            height: 32px;
+            padding-left: 13px;
+        }
     }
 
     &__icon {
         display: flex;
         align-items: center;
         padding: 11px 12px;
+
+        &._yandex {
+            padding: 0 5px 0 0;
+        }
+    }
+
+    &__footer {
+        margin-top: 10px;
+        font-size: @font-size-m;
     }
 }

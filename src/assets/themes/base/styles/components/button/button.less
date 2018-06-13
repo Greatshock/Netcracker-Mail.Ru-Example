@@ -35,6 +35,22 @@
         }
     }
 
+    &._y-search {
+        position: relative;
+        background: @color-y-accent;
+        color: black;
+        border: none;
+        border-radius: 0;
+
+        &::after {
+            content: '';
+            position: absolute;
+            right: -28px; top: 0;
+            border: 18px solid transparent;
+            border-left: 10px solid @color-y-accent;
+        }
+    }
+
     &._size-l {
         font-size: @font-size-xl;
     }
