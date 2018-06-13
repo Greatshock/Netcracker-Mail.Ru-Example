@@ -10,6 +10,7 @@ let svgmin = require("gulp-svgmin");
 let path = require("path");
 let inject = require("gulp-inject");
 let rename = require("gulp-rename");
+let imagemin = require("gulp-imagemin");
 
 gulp.task("svgstore", () => {
     let svgs = gulp.src("src/assets/themes/base/icons/*.svg")
@@ -45,8 +46,9 @@ gulp.task("markup", () => {
 });
 
 gulp.task("images", () => {
-    return gulp.src("src/assets/themes/base/images/**/*.*", {base: "src/assets/themes/base"})
-        .pipe(gulp.dest("dist"))
+    gulp.src("src/assets/themes/base/images/*")
+        .pipe(imagemin())
+        .pipe(gulp.dest("dist/images"))
         .pipe(browserSync.reload({stream: true}));
 });
 
@@ -86,12 +88,12 @@ gulp.task("bs", () => {
     });
 });
 
-gulp.task("watch", ["bs", "less", "markup", "images"], () => {
+gulp.task("serve", ["bs", "less", "markup", "images", "svgstore"], () => {
     gulp.watch("src/assets/themes/base/styles/**/*.less", ["less"]);
     gulp.watch("src/*.html", ["markup"]);
     gulp.watch("src/assets/themes/base/images/**/*.*", ["images"]);
 });
 
-gulp.task("dev", ["clean", "watch"]);
+gulp.task("dev", ["clean", "serve"]);
 
 gulp.task("default", ["dev"]);

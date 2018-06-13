@@ -7,20 +7,21 @@
     "url": "git+https://github.com/Greatshock/Netcracker-Study-Course.git"
   },
   "author": "Nikita Marinosyan",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Greatshock/Netcracker-Study-Course.git/issues"
   },
   "homepage": "https://github.com/Greatshock/Netcracker-Study-Course.git#readme",
   "main": "index.js",
   "scripts": {
+    "bs": "gulp bs",
     "clean": "gulp clean",
     "images": "gulp images",
     "markup": "gulp markup",
     "less": "gulp less",
     "svgstore": "gulp svgstore",
     "ts": "webpack --config webpack.config.js",
-    "watch": "gulp watch",
+    "serve": "gulp serve",
     "gulp": "gulp"
   },
   "devDependencies": {
@@ -29,6 +30,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-clean-css": "^3.9.4",
+    "gulp-imagemin": "^4.1.0",
     "gulp-inject": "^4.3.2",
     "gulp-less": "^3.5.0",
     "gulp-rename": "^1.2.3",
