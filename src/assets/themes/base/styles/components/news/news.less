@@ -1,0 +1,32 @@
+.news {
+  margin-right: 100px;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__header-item+&__header-item {
+    margin-left: 10px;
+  }
+
+  &__time {
+    font-size: @font-size-m;
+    color: @color-pale;
+  }
+
+  &__footer {
+    display: flex;
+  }
+
+  &__footer-item {
+    display: flex;
+  }
+
+  &__footer-item+&__footer-item {
+    margin-left: 20px;
+  }
+}

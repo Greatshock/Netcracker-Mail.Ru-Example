@@ -4,14 +4,26 @@
     text-decoration: none;
     overflow: hidden;
 
+    &._horizontal {
+        flex-direction: row;
+    }
+
     &._main-news {
         max-height: 80px;
         line-height: 20px;
     }
 
     &__title {
+        &._text-s {
+            font-size: @font-size-m;
+        }
+
         &._text-m {
             font-size: @font-size-l;
+        }
+
+        &._currency-rate {
+            padding: 0 6px;
         }
 
         /* Title colors */
