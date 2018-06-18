@@ -10,7 +10,7 @@ module.exports = {
     },
     resolve: {
         // These extensions count as modules
-        extensions: [".ts", ".tsx", ".js"]
+        extensions: [".ts", ".js"]
     },
     module: {
         rules: [
