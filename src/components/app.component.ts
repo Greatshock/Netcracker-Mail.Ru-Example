@@ -36,9 +36,25 @@ function scrollYHandlerUsingFetch(): void {
     // Get current vertical scroll position
     let yScrollPosition: number = document.documentElement.scrollTop;
 
+    // Show or hide `scroll top` button
+    // depending on the current scroll position
+    if (yScrollPosition + window.innerHeight > document.documentElement.clientHeight + 500) {
+        applyStyles(scrollTopButton, {
+            visibility: "visible",
+            opacity: "1",
+            transition: "1s"
+        });
+    } else {
+        applyStyles(scrollTopButton, {
+            visibility: "hidden",
+            opacity: "0",
+            transition: ""
+        });
+    }
+
     if (yScrollPosition + window.innerHeight === scrollHeight) {
         // Enable loader
-        let loader: HTMLElement = <HTMLElement>document.querySelector(".loader");
+        let loader: HTMLElement = document.querySelector(".loader");
         loader.style.visibility = "visible";
         loader.style.opacity = "1";
 
@@ -76,9 +92,25 @@ async function scrollYHandlerUsingAsyncAwait() {
     // Get current vertical scroll position
     let yScrollPosition: number = document.documentElement.scrollTop;
 
+    // Show or hide `scroll top` button
+    // depending on the current scroll position
+    if (yScrollPosition + window.innerHeight > document.documentElement.clientHeight + 500) {
+        applyStyles(scrollTopButton, {
+            visibility: "visible",
+            opacity: "1",
+            transition: "1s"
+        });
+    } else {
+        applyStyles(scrollTopButton, {
+            visibility: "hidden",
+            opacity: "0",
+            transition: ""
+        });
+    }
+
     if (yScrollPosition + window.innerHeight === scrollHeight) {
         // Enable loader
-        let loader: HTMLElement = <HTMLElement>document.querySelector(".loader");
+        let loader: HTMLElement = document.querySelector(".loader");
         loader.style.visibility = "visible";
         loader.style.opacity = "1";
 
@@ -87,8 +119,7 @@ async function scrollYHandlerUsingAsyncAwait() {
             .then(function(result) {
 
                 // Create and append widgets
-                let line: HTMLElement =
-                    <HTMLElement>document.querySelector(".page__line._fourth");
+                let line: HTMLElement = document.querySelector(".page__line._fourth");
                 line.insertAdjacentElement("beforeend", createWidgetsBlock());
 
                 // Hide loader
@@ -101,6 +132,23 @@ async function scrollYHandlerUsingAsyncAwait() {
     }
 }
 /* --------------------------- END OF IMPLEMENTATIONS OF DYNAMIC WIDGETS ------------------------ */
+
+
+
+/* --------------------------------------- SMOOTH SCROLL ---------------------------------------- */
+let scrollTopButton: HTMLElement = document.querySelector(".button._scroll-to-top");
+scrollTopButton.onclick = function scrollUp() {
+        window.scrollBy(0, -100);
+        if (window.pageYOffset > 0) {
+            applyStyles(scrollTopButton, {
+                opacity: "",
+                visibility: "",
+                transition: ""
+            });
+            requestAnimationFrame(scrollUp);
+        }
+    };
+/* ----------------------------------- END OF SMOOTH SCROLL ------------------------------------- */
 
 
 

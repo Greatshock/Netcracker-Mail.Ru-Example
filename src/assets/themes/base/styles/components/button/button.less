@@ -51,6 +51,26 @@
         }
     }
 
+    &._scroll-to-top {
+        padding: 5px;
+
+        position: fixed;
+        left: 95%;
+        top: 92%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        background-color: @color-y-button-primary;
+
+        visibility: hidden;
+        opacity: 0;
+    }
+
     &._size-l {
         font-size: @font-size-xl;
     }
