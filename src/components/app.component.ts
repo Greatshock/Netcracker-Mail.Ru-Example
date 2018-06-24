@@ -152,6 +152,70 @@ scrollTopButton.onclick = function scrollUp() {
 
 
 
+/* --------------------------------- DEBOUNCE, THROTTLING, RESIZE-------------------------------- */
+let yandexMailbox = document.querySelector(".y-mailbox");
+
+yandexMailbox.addEventListener("mousemove", debounce(() => {
+    console.log("debounce");
+}, 300));
+
+yandexMailbox.addEventListener("touchmove", throttle(() => {
+    console.log("throttle");
+}, 2000));
+
+window.addEventListener("resize", debounce(() => {
+    console.log("resizing ended");
+}, 300));
+
+function debounce(f: Function, ms: number) {
+    let timer: number = null;
+
+    return function (...args: any[]) {
+        const onComplete = () => {
+            f.apply(this, args);
+            timer = null;
+        };
+
+        if (timer) {
+            clearTimeout(timer);
+        }
+
+        timer = setTimeout(onComplete, ms);
+    }
+}
+
+function throttle(f: Function, ms: number) {
+    let isThrottled: boolean = false,
+        savedArgs: any,
+        savedThis: any;
+
+    function wrapper() {
+
+        if (isThrottled) {
+            savedArgs = arguments;
+            savedThis = this;
+            return;
+        }
+
+        f.apply(this, arguments);
+
+        isThrottled = true;
+
+        setTimeout(() => {
+            isThrottled = false;
+            if (savedArgs) {
+                wrapper.apply(savedThis, savedArgs);
+                savedArgs = savedThis = null;
+            }
+        }, ms);
+    }
+
+    return wrapper;
+}
+/* ------------------------------ END OF DEBOUNCE, THROTTLING,RESIZE----------------------------- */
+
+
+
 // HELPERS
 function fetchWidgets(timeout: number): Promise<string> {
     return new Promise(resolve => {
