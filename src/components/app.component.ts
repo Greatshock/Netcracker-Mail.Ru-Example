@@ -19,14 +19,18 @@ let app: AppComponent = new AppComponent();
 const DYNAMIC_WIDGETS_IMPLEMENTATION: number = 1; // Switch to 0 to use implementation with fetch
 
 if (DYNAMIC_WIDGETS_IMPLEMENTATION) {
-    window.addEventListener("scroll", scrollYHandlerUsingAsyncAwait);
+    window.addEventListener("scroll", () => {
+        onScroll("asyncAwait")
+    });
 } else {
-    window.addEventListener("scroll", scrollYHandlerUsingFetch);
+    window.addEventListener("scroll", () => {
+        onScroll("fetch")
+    });
 }
 
 /* ------------------------------- IMPLEMENTATIONS OF DYNAMIC WIDGETS --------------------------- */
 // Implementation using fetch
-function scrollYHandlerUsingFetch(): void {
+function onScroll(type: string) {
     // Get current page content height (cross-browser approach)
     let scrollHeight: number = Math.max(
         document.body.scrollHeight, document.documentElement.scrollHeight,
@@ -58,78 +62,55 @@ function scrollYHandlerUsingFetch(): void {
         loader.style.visibility = "visible";
         loader.style.opacity = "1";
 
-        // Fetch new content from the server
-        fetch("")
-            .then(function(response) {
-                // Simulate server latency
-                setTimeout(function() {
-                    if (response.status !== 200) {
-                        throw new Error(`Server returned an error code ${response.status}`);
-                    }
+        // Check the type
+        if (type.toLowerCase() === "fetch") {
+            // Fetch new content from the server
+            fetch("")
+                .then(function(response) {
+                    // Simulate server latency
+                    setTimeout(function() {
+                        if (response.status !== 200) {
+                            throw new Error(`Server returned an error code ${response.status}`);
+                        }
 
-                    // Create and append widgets
-                    let line: HTMLElement = document.querySelector(".page__line._fourth");
-                    line.insertAdjacentElement("beforeend", createWidgetsBlock());
+                        // Create and append widgets
+                        let line: HTMLElement = document.querySelector(".page__line._fourth");
+                        line.insertAdjacentElement("beforeend", createWidgetsBlock());
 
+                        // Hide loader
+                        loader.style.visibility = "hidden";
+                        loader.style.opacity = "0";
+
+                        window.scrollBy(0, 150);
+                    }, 1000);
+                })
+                .catch(alert);
+        } else if (type.toLowerCase() === "asyncawait") {
+            // Use async await
+            fetchWidgetsUsingAsyncAwait()
+                .then(() => {
                     // Hide loader
                     loader.style.visibility = "hidden";
                     loader.style.opacity = "0";
-
-                    window.scrollBy(0, 150);
-                }, 1000);
-            })
-            .catch(alert);
+                })
+                .catch(alert);
+        } else {
+            throw new Error("Invalid type");
+        }
     }
 }
-// Implementation using async & await
-async function scrollYHandlerUsingAsyncAwait() {
-    // Get current page content height (cross-browser approach)
-    let scrollHeight: number = Math.max(
-        document.body.scrollHeight, document.documentElement.scrollHeight,
-        document.body.offsetHeight, document.documentElement.offsetHeight,
-        document.body.clientHeight, document.documentElement.clientHeight
-    );
-    // Get current vertical scroll position
-    let yScrollPosition: number = document.documentElement.scrollTop;
 
-    // Show or hide `scroll top` button
-    // depending on the current scroll position
-    if (yScrollPosition + window.innerHeight > document.documentElement.clientHeight + 500) {
-        applyStyles(scrollTopButton, {
-            visibility: "visible",
-            opacity: "1",
-            transition: "1s"
-        });
-    } else {
-        applyStyles(scrollTopButton, {
-            visibility: "hidden",
-            opacity: "0",
-            transition: ""
-        });
-    }
+async function fetchWidgetsUsingAsyncAwait() {
+    let result: void = await fetchWidgets(2000)
+        .then(function(result) {
 
-    if (yScrollPosition + window.innerHeight === scrollHeight) {
-        // Enable loader
-        let loader: HTMLElement = document.querySelector(".loader");
-        loader.style.visibility = "visible";
-        loader.style.opacity = "1";
+            // Create and append widgets
+            let line: HTMLElement = document.querySelector(".page__line._fourth");
+            line.insertAdjacentElement("beforeend", createWidgetsBlock());
 
-        // Fetch new content from the server
-        let result: void = await fetchWidgets(2000)
-            .then(function(result) {
-
-                // Create and append widgets
-                let line: HTMLElement = document.querySelector(".page__line._fourth");
-                line.insertAdjacentElement("beforeend", createWidgetsBlock());
-
-                // Hide loader
-                loader.style.visibility = "hidden";
-                loader.style.opacity = "0";
-
-                window.scrollBy(0, 150);
-            })
-            .catch(alert);
-    }
+            window.scrollBy(0, 150);
+        })
+        .catch(alert);
 }
 /* --------------------------- END OF IMPLEMENTATIONS OF DYNAMIC WIDGETS ------------------------ */
 
